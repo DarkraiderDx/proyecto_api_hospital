@@ -1,0 +1,41 @@
+.layout-footer {
+    transition: margin-left $transitionDuration;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--surface-border);
+}
+
+.container-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    //background-color: #f8f9fa; /* Ajusta el color de fondo según tu diseño */
+    background-color: var(--surface-overlay);
+    text-align: center;
+    padding: 10px 0;
+  }
+  
+  .content-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px; /* Ajusta el ancho máximo según tus necesidades */
+    margin: 0 auto;
+  }
+  
+  .item-footer {
+    padding: 0 15px; /* Ajusta el relleno según tus necesidades */
+  }
+  
+  .left-footer, .right-footer {
+    flex: 0;
+    margin-left: auto;
+    
+  }
+  
+  .center-footer {
+    flex: 2; /* Ajusta la proporción del centro si es necesario */
+  }
