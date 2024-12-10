@@ -1,5 +1,5 @@
 import HttpClient from "./HttpClient"
-//page=1,limit=10,q=''
+
 export default{
     index:(page=1,limit=10,q='')=>{
         return HttpClient().get("/v1/permissions?page="+page+"&limit="+limit+"&q="+q);

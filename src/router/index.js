@@ -13,7 +13,7 @@ const router = createRouter({
       path: '/login',
       name: 'Login',
       component: () => import('../views/auth/Login.vue'),
-      meta:{
+      meta: {
         requireIfAuth: true,
         resource: 'auth',
         action: 'show'
@@ -23,77 +23,65 @@ const router = createRouter({
       path: '/admin',
       name: 'AppLayout',
       component: () => import('../layout/AppLayout.vue'),
-      meta:{
+      meta: {
         requireAuth: true
       },
-      children:[
+      children: [
         {
-        path: '',
-        name: 'Admin',
-        component: () => import('../views/admin/Admin.vue'),
-        meta:{ requireAuth: true,
-          resource: 'auth',
-          action: 'show' }
+          path: '',
+          name: 'Admin',
+          component: () => import('../views/admin/Admin.vue'),
+          meta: { requireAuth: true, resource: 'auth', action: 'show' }
         },
         {
-        path: 'perfil',
-        name: 'Perfil',
-        component: () => import('../views/admin/Perfil.vue'),
-        meta:{ requireAuth: true,
-          resource: 'auth',
-          action: 'index' }
+          path: 'perfil',
+          name: 'Perfil',
+          component: () => import('../views/admin/Perfil.vue'),
+          meta:{ requireAuth: true,
+            resource: 'auth',
+            action: 'index' }
+          },
+        {
+          path: 'formulario-d8',
+          name: 'FormularioD8',
+          component: () => import('../views/hospital/FormularioD8.vue'),
+          meta: { requireAuth: true }
         },
         {
-        path: 'user',
-        name: 'User',
-        component: () => import('../views/admin/user/User.vue'),
-        meta:{ requireAuth: true,
-          resource: 'auth',
-          action: 'index' }
+          path: 'formulario-p8',
+          name: 'FormularioP8',
+          component: () => import('../views/hospital/FormularioP8.vue'),
+          meta: { requireAuth: true }
         },
         {
-        path: 'role',
-        name: 'Role',
-        component: () => import('../views/admin/role/Role.vue'),
-        meta:{ requireAuth: true,
-          resource: 'role',
-          action: 'index' }
+          path: 'formulario-d100',
+          name: 'FormularioD100',
+          component: () => import('../views/hospital/FormularioD100.vue'),
+          meta: { requireAuth: true }
         },
         {
-        path: 'role/:id',
-        name: 'RoleEdit',
-        component: () => import('../views/admin/role/RoleEdit.vue'),
-        meta:{ requireAuth: true,
-          resource: 'role',
-          action: 'update'
-        }
+          path: 'formulario-p100',
+          name: 'FormularioP100',
+          component: () => import('../views/hospital/FormularioP100.vue'),
+          meta: { requireAuth: true }
         },
-        {
-        path: 'permission',
-        name: 'Permission',
-        component: () => import('../views/admin/role/Permission.vue'),
-        meta:{ requireAuth: true,
-          resource: 'permission',
-          action: 'index'
         
-        }
         
       ]
     }
   ]
-})
+});
 
-router.beforeEach((to, from, next)=>{
-  let token=localStorage.getItem("access_token");
-  if(to.meta.requireAuth){
-    if(!token)
-    return next({name:"Login"})
-  return next()
+router.beforeEach((to, from, next) => {
+  let token = localStorage.getItem("access_token");
+  if (to.meta.requireAuth) {
+    if (!token) return next({ name: "Login" });
+    return next();
   }
-  //aqui para cambiar incio 
-  if(to.meta.requireIfAuth && token){
-    return next({name:'Admin'})
+  if (to.meta.requireIfAuth && token) {
+    return next({ name: 'Admin' });
   }
-  return next()
-})
-export default router
+  return next();
+});
+
+export default router;

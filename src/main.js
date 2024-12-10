@@ -111,6 +111,7 @@ import VirtualScroller from 'primevue/virtualscroller';
 
 
 import '@/assets/styles.scss';
+
 //fin
 const app = createApp(App)
 

@@ -1,7 +1,7 @@
 import axios from "axios"
 
-export const urlBase="http://apicontrol.hospitalpotosi.org.bo/api";
-const HttpClient = () => {
+export const urlBase="http://127.0.0.1:8000/api/filtrar/";
+const HttpClientApi = () => {
 // export default() => {
     let token=localStorage.getItem("access_token");
     //console.log(localStorage.getItem("access_token"));
@@ -29,4 +29,4 @@ const HttpClient = () => {
     )
     return api;
 }
-export default HttpClient;
+export default HttpClientApi;

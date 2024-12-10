@@ -5,19 +5,16 @@ const { can }=useAbility();
 import AppMenuItem from './AppMenuItem.vue';
 const model = ref([
     {
-        label: 'Inicio',
-        items: [{ label: 'Inicio', icon: 'pi pi-fw pi-home', to: '/admin', visible:true }
-                ,{ label: 'Perfil', icon: 'pi pi-fw pi-user-edit', to: '/admin/perfil', visible:true }]
-    },
-    {
-        label: 'Gestion Roles y Permisos',
+        label: 'Hostpital',
         items: [
-            { label: 'Usuario', icon: 'pi pi-fw pi-id-card', to: '/admin/user' , visible:can('index', 'user')},
-            { label: 'Roles', icon: 'pi pi-fw pi-check-square', to: '/admin/role', visible:can('index', 'role')},
-            { label: 'Permisos', icon: 'pi pi-fw pi-bookmark', to: '/admin/permission', visible:can('index', 'permission') },
-        ],
-        
-    }
+                { label: 'Formulario D8', icon: 'pi pi-fw pi-book', to: '/admin/formulario-d8', visible:true },
+                { label: 'Formulario P8', icon: 'pi pi-fw pi-book', to: '/admin/formulario-p8', visible:true },
+                { label: 'Formulario D100', icon: 'pi pi-fw pi-book', to: '/admin/formulario-d100', visible:true },
+                { label: 'Formulario P100', icon: 'pi pi-fw pi-book', to: '/admin/formulario-p100', visible:true },
+
+            ]
+    },
+   
   
 ]);
 </script>
@@ -28,11 +25,6 @@ const model = ref([
             <app-menu-item v-if="!item.separator" :item="item" :index="i"></app-menu-item>
             <li v-if="item.separator" class="menu-separator"></li>
         </template>
-        <!-- <li>
-            <a href="https://www.primefaces.org/primeblocks-vue/#/" target="_blank">
-                <img src="/layout/images/banner-primeblocks.png" alt="Prime Blocks" class="w-full mt-3" />
-            </a>
-        </li> -->
     </ul>
 </template>
 
